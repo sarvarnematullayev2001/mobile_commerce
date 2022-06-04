@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "==3.0.7"
 "psycopg2-binary" = "==2.8.6"
+pillow = "*"
 
 [dev-packages]
 
