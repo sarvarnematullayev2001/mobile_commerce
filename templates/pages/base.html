@@ -1,4 +1,10 @@
 {% load static %}
+
+{% comment %} {% block extrahead %}
+    <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+    {{ block.super }}
+{% endblock extrahead %} {% endcomment %}
+
 <!DOCTYPE html>
 <html>
 
@@ -44,15 +50,15 @@
 
         {% include 'includes/navbar.html' %}
 
-        {% block content %}
-
+        {% block content %}/cars/
+/cars/
         {% endblock content %}
 
         <!-- Full Page Search -->
         <div id="full-page-search">
             <button type="button" class="close">×</button>
-            <form action="https://storage.googleapis.com/theme-vessel/carhouse/index.html#" class="search-header">
-                <input type="search" value="" placeholder="type keyword(s) here. Eg: audi, benz etc" />
+            <form action="{% url 'search' %}" class="search-header">
+                <input type="search" value="" placeholder="type keyword(s) here. Eg: audi, benz etc" name='keyword'/>
                 <button type="submit" class="btn btn-sm button-theme">Search</button>
             </form>
         </div>

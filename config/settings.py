@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # local
+    'pages.apps.PagesConfig',
+    'cars.apps.CarsConfig',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,12 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     
-    # local
-    'pages.apps.PagesConfig',
-    'cars.apps.CarsConfig',
-    
     # 3rd party apps
-    'ckeditor'
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +136,18 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'config/static')
 ]
 
+
 # Media settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# CKEDITOR settings
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+    }
+}
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_RESTRICT_BY_USER = True
+
